@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/yourafg/UI-Library/refs/heads/main/library"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/yourafg/hivality/refs/heads/main/UI/yes.lua"))()
 local flags = library.flags
 
 local window = library:window({
@@ -72,14 +72,6 @@ settings:toggle({
     callback = function(bool)
     window.toggle_watermark(bool)
 end})
-
-local doggystyle123 = misc:section({name = "femboy"})
-
-doggystyle123:keybind({
-    name = "UI Bind", 
-    default = Enum.KeyCode.Z, 
-    callback = window.set_menu_visibility
-})
 
 settings:toggle({
     name = "Player List",
