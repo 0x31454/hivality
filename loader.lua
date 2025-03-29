@@ -73,14 +73,6 @@ settings:toggle({
     window.toggle_watermark(bool)
 end})
 
-local doggystyle123 = misc:section({name = "femboy"})
-
-doggystyle123:keybind({
-    name = "UI Bind", 
-    default = Enum.KeyCode.Z, 
-    callback = window.set_menu_visibility
-})
-
 settings:toggle({
     name = "Player List",
     default = false, 
