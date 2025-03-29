@@ -4372,13 +4372,15 @@ end
                 flag = properties.flag or tostring(2^math.random(1,30)*3),
                 keybind_name = properties.keybind_name or nil, 
                 callback = properties.callback or function() end,
-                fixed = properties.fixed or false, -- Add this line
                 open = false,
                 binding = nil, 
                 name = properties.name or nil, 
+
                 key = properties.key or nil, 
                 mode = properties.mode or "toggle",
-                active = properties.default or false,
+                active = properties.default or false, 
+
+                hold_instances = {},
             }
 
             flags[cfg.flag] = {} 
@@ -4716,12 +4718,12 @@ end
                 cfg.open = false 
             end) 
 
-                        -- Find this section:
             keybind.MouseButton2Click:Connect(function()
                 cfg.open = not cfg.open 
+
                 cfg.set_visible(cfg.open)
             end)
-
+            
             keybind.MouseButton1Down:Connect(function()
                 task.wait()
                 keybind.Text = "..."	
@@ -4733,26 +4735,6 @@ end
                     cfg.binding = nil
                 end)
             end)
-
-            -- And wrap it in an if statement like this:
-            if not cfg.fixed then
-                keybind.MouseButton2Click:Connect(function()
-                    cfg.open = not cfg.open 
-                    cfg.set_visible(cfg.open)
-                end)
-
-                keybind.MouseButton1Down:Connect(function()
-                    task.wait()
-                    keybind.Text = "..."	
-
-                    cfg.binding = library:connection(uis.InputBegan, function(keycode, game_event)  
-                        cfg.set(keycode.KeyCode)
-                        
-                        cfg.binding:Disconnect() 
-                        cfg.binding = nil
-                    end)
-                end)
-            end
 
             library:connection(uis.InputBegan, function(input, game_event) 
                 if not game_event then 
