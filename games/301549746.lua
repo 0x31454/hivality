@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/yourafg/hivality/refs/heads/main/UI/library.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/0x31454/hivality/refs/heads/main/UI/library.lua"))()
 local flags = library.flags
 
 local window = library:window({
